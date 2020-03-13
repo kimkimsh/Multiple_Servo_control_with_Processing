@@ -1,26 +1,26 @@
 /* ============================================
-  balancing_bot arduino code is placed under the MIT license
-  Copyright (c) 2020 kimkimsh
-
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to deal
-  in the Software without restriction, including without limitation the rights
-  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-  THE SOFTWARE.
-  ===============================================
-*/
+ balancing_bot arduino code is placed under the MIT license
+ Copyright (c) 2020 kimkimsh
+ 
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ 
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+ 
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+ ===============================================
+ */
 
 import processing.serial.*;
 
@@ -66,8 +66,12 @@ void setup()
 
 void draw()
 {
-  drawBackground();
-  delay(50);
+  background(150);
+  draw_arc(cx1, cy1, arc_width, arc_height, g1.rad, g1.deg, "MOTOR1");
+  draw_arc(cx2, cy2, arc_width, arc_height, g2.rad, g2.deg, "MOTOR2");
+  draw_arc(cx3, cy3, arc_width, arc_height, g3.rad, g3.deg, "MOTOR3");
+  draw_arc(cx4, cy4, arc_width, arc_height, g4.rad, g4.deg, "MOTOR4");
+  delay(10);
 }
 
 void mouseDragged()
@@ -112,14 +116,14 @@ class Get_value
   {
     a = Gcy - mouseY;
     b = Gcx - mouseX;
-    
+
     //get radian angle from center of the are to mouse point
     rad = atan(a/b);
     if (rad <= PI/2 && rad>0)
     {
       rad += PI;
     }
-    
+
     //get degree angle
     if (rad<0)
     {
@@ -153,12 +157,3 @@ void draw_arc(float cx, float cy, float aw, float ah, float rad, int deg, String
   textSize(40);
   text(deg, cx, cy+40);
 } 
-
-void drawBackground()
-{
-  background(150);
-  draw_arc(cx1, cy1, arc_width, arc_height, g1.rad, g1.deg, "MOTOR1");
-  draw_arc(cx2, cy2, arc_width, arc_height, g2.rad, g2.deg, "MOTOR2");
-  draw_arc(cx3, cy3, arc_width, arc_height, g3.rad, g3.deg, "MOTOR3");
-  draw_arc(cx4, cy4, arc_width, arc_height, g4.rad, g4.deg, "MOTOR4");
-}

@@ -77,22 +77,22 @@ void draw()
 void mouseDragged()
 {
   // Checking if the mouse point is in an area of the arc
-  if (mouseY < cy1 && sq(mouseX-cx1) + sq(mouseY-cy1) < sq(arc_width/2) )
+  if (mouseY < cy1 && dist(mouseX, mouseY, cx1, cy1) < (arc_width/2))
   {
     g1.get_rad_deg();
     mystring = "s1," + String.valueOf(g1.deg)+"e"; // Set the data to Arduino (protocall form : "s(id of motor),(degree),e")
     myport.write(mystring);  // send the data to Arduino
-  } else if (mouseY < cy2 && sq(mouseX-cx2) + sq(mouseY-cy2) < sq(arc_width/2) )
+  } else if (mouseY < cy2 && dist(mouseX, mouseY, cx2, cy2) < (arc_width/2))
   {
     g2.get_rad_deg();
     mystring = "s2," + String.valueOf(g2.deg)+"e";
     myport.write(mystring);
-  } else if (mouseY < cy3 && sq(mouseX-cx3) + sq(mouseY-cy3) < sq(arc_width/2) )
+  } else if (mouseY < cy3 && dist(mouseX, mouseY, cx3, cy3) < (arc_width/2))
   {
     g3.get_rad_deg();
     mystring = "s3," + String.valueOf(g3.deg)+"e";
     myport.write(mystring);
-  } else if (mouseY < cy4 && sq(mouseX-cx4) + sq(mouseY-cy4) < sq(arc_width/2) )
+  } else if (mouseY < cy4 && dist(mouseX, mouseY, cx4, cy4) < (arc_width/2))
   {
     g4.get_rad_deg();
     mystring = "s4," + String.valueOf(g4.deg)+"e";

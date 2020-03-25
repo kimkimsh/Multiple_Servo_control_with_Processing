@@ -1,5 +1,5 @@
 /* ============================================
-  balancing_bot arduino code is placed under the MIT license
+  ar_servo_control arduino code is placed under the MIT license
   Copyright (c) 2020 kimkimsh
 
   Permission is hereby granted, free of charge, to any person obtaining a copy

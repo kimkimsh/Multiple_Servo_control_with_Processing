@@ -44,6 +44,11 @@ void setup()
   servo2.attach(servo_pin2);
   servo3.attach(servo_pin3);
   servo4.attach(servo_pin4);
+  
+  servo1.write(90);
+  servo2.write(90);
+  servo3.write(90);
+  servo4.write(70);
 }
 
 void loop() {
